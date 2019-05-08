@@ -38,9 +38,9 @@ Both the target and local networks use the same architecture, which is listed be
 - an output layer 
 
 The soft-update scheme was used for updating the parameters of the target network. A update 
-constant `/tau`=0.001 was used, and the updating formula is:
+constant `tau`=0.001 was used, and the updating formula is:
 ```
-target_net_parameter= /tau * local_net_parameter + (1 - /tau)*target_net_parameter
+target_net_parameter= tau * local_net_parameter + (1 - tau)*target_net_parameter
 ```
 
 ### Experience Replay
