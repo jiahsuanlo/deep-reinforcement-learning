@@ -51,7 +51,7 @@ sampling.
 
 Here is the reward history plot:
 
-![Reward History](RewardHistory.png)
+![Reward History](ScoreHistory.png)
 
 
 ## Future Work
