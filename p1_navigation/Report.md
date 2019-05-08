@@ -62,7 +62,7 @@ Here is the reward history plot:
 
 The results show that a basic DQN setup with a simple two-layer fully-connected network 
 architecture and a random-sampling replay buffer performs adequately to achieve the project
-goal. The algorithm converges to a score of 13.00 within 523 episodes of training. 
+goal. The algorithm converges to a score of 13.00 within 447 episodes of training. 
 
 To further improve the learning speed, several possible ideas may be helpful:
 
