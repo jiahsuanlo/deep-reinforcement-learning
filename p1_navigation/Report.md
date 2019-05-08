@@ -43,6 +43,9 @@ constant `tau`=0.001 was used, and the updating formula is:
 target_net_parameter= tau * local_net_parameter + (1 - tau)*target_net_parameter
 ```
 
+The episode time span was set at 300.
+
+
 ### Experience Replay
 
 An experience replay buffer with a size of 1e5 was used. The sampling method is random
@@ -60,3 +63,11 @@ Here is the reward history plot:
 The results show that a basic DQN setup with a simple two-layer fully-connected network 
 architecture and a random-sampling replay buffer performs adequately to achieve the project
 goal. The algorithm converges to a score of 13.00 within 523 episodes of training. 
+
+To further improve the learning speed, several possible ideas may be helpful:
+
+- Double DQN architecture: Using two DQN networks to determine the TD target can avoid the over-
+  estimation of Q-value problem. 
+- Proritized experience replay sampling: By setting the TD error as the sampling probability,
+  the samples with more room of improvement are more likely to be selected. This may lead to 
+  better learning efficiency.
