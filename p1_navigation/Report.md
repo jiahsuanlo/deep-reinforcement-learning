@@ -1,6 +1,7 @@
 # Deep Reinforcement Learning - Project 1 Naviagtion
 
 Author: JiaHsuan Lo
+
 Date: 2019-0506
 
 This report describes the first project of Udacity Deep Reinforcement Learning NanoDegree. 
@@ -8,10 +9,10 @@ The Unity ML-Agents Banana environment is used in the project. The simulation co
 single agent that navigates a large environment. At each time step, it has four actions at 
 its disposal, including:
 
-0 - walk forward 
-1 - walk backward
-2 - turn left
-3 - turn right
+- 0 - walk forward 
+- 1 - walk backward
+- 2 - turn left
+- 3 - turn right
 
 The state space has 37 dimensions and contains the agent's velocity, along with ray-based 
 perception of objects around agent's forward direction. A reward of +1 is provided for 
