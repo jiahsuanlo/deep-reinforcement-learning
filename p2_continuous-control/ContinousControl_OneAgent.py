@@ -418,13 +418,13 @@ def PlotScoreHistory(scores):
     plt.show()
     
 
-def WatchSmartAgent(env, agent):    
+def WatchSmartAgent(env, brain_name, agent):    
     # load models
     agent.actor_local.load_state_dict(torch.load('checkpoint_actor.pth'))
     agent.critic_local.load_state_dict(torch.load('checkpoint_critic.pth'))
     
     
-    for episode in range(3):
+    for episode in range(1):
         env_info = env.reset(train_mode=False)[brain_name]     # reset the environment    
         states = env_info.vector_observations                  # get the current state (for each agent)
         score= 0
@@ -452,13 +452,19 @@ if __name__=="__main__":
     # get the default brain
     brain_name = env.brain_names[0]
     brain = env.brains[brain_name]
-    # See env information
+    # see env information
     state_size, action_size= PrintEnvInfo(env)
     
-    seed= 2
+    # start training
+    seed= 1234
     agent= Agent(state_size, action_size, seed)
     scores = TrainDDPG()
+    
+    # plot the scores history
     PlotScoreHistory(scores)
+    
+    # watch the agent run
+    WatchSmartAgent(env, brain_name, agent)
 
     
 
