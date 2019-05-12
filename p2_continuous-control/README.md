@@ -50,6 +50,31 @@ The task is episodic, and in order to solve the environment,  the agent must get
 
 3. Place the file in your project directory, for example, in the `p2_continuous-control/` folder, and unzip (or decompress) the file. 
 
+### Dependencies
+
+This project requires a python environment to run the code. Here is the instruction to set up an Anaconda environment:
+
+1. Create (and activate) a new environment with Python 3.6.
+```
+Linux or Mac:
+conda create --name drlnd python=3.6
+source activate drlnd
+Windows:
+conda create --name drlnd python=3.6 
+activate drlnd
+```
+
+2. Follow the instructions in [openai/gym](https://github.com/openai/gym) repository to perform a minimal install of OpenAI gym.
+
+- Next, install the **classic control** and **box2d** environment group by following the instructions.
+
+3. Clone the repository (if you haven't already!), and navigate to the python/ folder. Then, install several dependencies.
+```
+git clone https://github.com/udacity/deep-reinforcement-learning.git
+cd deep-reinforcement-learning/python
+pip install .
+```
+
 
 ### Instructions
 
