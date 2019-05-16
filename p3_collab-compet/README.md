@@ -18,45 +18,96 @@ The observation space consists of 8 variables corresponding to the position and 
 
 The task is episodic, and in order to solve the environment, your agents must get an average score of +0.5 (over 100 consecutive episodes, after taking the maximum over both agents). Specifically,
 
-- After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent. This yields 2 (potentially different) scores. We then take the maximum of these 2 scores.
+- After each episode, the scores is defined as the summation of the rewards that each agent received (without discounting). This yields 2 (potentially different) scores. We then take the maximum of these 2 scores.
 - This yields a single **score** for each episode.
 
 The environment is considered solved, when the average (over 100 episodes) of those **scores** is at least +0.5.
 
 ### Getting Started
 
-1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
+1. Download the project file, `p3_collab-compet.zip` and unzip the files to a folder, e.g. `p3_collab-compet/`.
+2. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
     - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux.zip)
     - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis.app.zip)
     - Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Windows_x86.zip)
     - Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Windows_x86_64.zip)
-    
-    (_For Windows users_) Check out [this link](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64) if you need help with determining if your computer is running a 32-bit version or 64-bit version of the Windows operating system.
-
-    (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agent without enabling a virtual screen, but you will be able to train the agent.  (_To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
-
-2. Place the file in the DRLND GitHub repository, in the `p3_collab-compet/` folder, and unzip (or decompress) the file. 
-
+3. Place the file in your working directory (`p3_collab-compet/`) and unzip (or decompress) the file.
+4. The file structure is listed below:
+	- agent0_actor.pth, agent0_critic, agent1_actor, agent1_critic: the files that store the actor and critic model weights of both agents.
+	- ddpg_model.py: the definition of the Deep Deterministic Policy Gradient (DDPG) neuro network model.
+	- ddpg_agent.py: the definition of the DDPG agent.
+	- maddpg_agent.py: the definition of the Multi Agent Deep Deterministic Policy Gradient (MADDPG) agent.
+	- utility.py: the definition of some utitlity functions
+	
 ### Instructions
 
-Follow the instructions in `Tennis.ipynb` to get started with training your own agent!  
+For training the model, run the main.py and type in `1` to select the option 1: Train the agents
 
-### (Optional) Challenge: Crawler Environment
+```
+python main.py
 
-After you have successfully completed the project, you might like to solve the more difficult **Soccer** environment.
+'Academy' started successfully!
+Unity Academy name: Academy
+        Number of Brains: 1
+        Number of External Brains : 1
+        Lesson number : 0
+        Reset Parameters :
+                
+Unity brain name: TennisBrain
+        Number of Visual Observations (per agent): 0
+        Vector Observation space type: continuous
+        Vector Observation space size (per agent): 8
+        Number of stacked Vector Observation: 3
+        Vector Action space type: continuous
+        Vector Action space size (per agent): 2
+        Vector Action descriptions: , 
+Number of agents: 2
+Size of each action: 2
+There are 2 agents. Each observes a state with length: 24
+The state for the first agent looks like: [ 0.          0.          0.          0.          0.          0.
+  0.          0.          0.          0.          0.          0.
+  0.          0.          0.          0.         -6.65278625 -1.5
+ -0.          0.          6.83172083  6.         -0.          0.        ]
+=====================
+Options:
+1. Train the agents
+2. Play the agents
 
-![Soccer][image2]
+Input options (1/2): 1
+```
 
-In this environment, the goal is to train a team of agents to play soccer.  
+Follow play a smart agent after completing training, run the main.py and type `2` to selet the option 2: Play the agents.
 
-You can read more about this environment in the ML-Agents GitHub [here](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#soccer-twos).  To solve this harder task, you'll need to download a new Unity environment.  (**Note**: Udacity students should not submit a project with this new environment.)
+```
+python main.py
 
-You need only select the environment that matches your operating system:
-- Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Linux.zip)
-- Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer.app.zip)
-- Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Windows_x86.zip)
-- Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Windows_x86_64.zip)
+'Academy' started successfully!
+Unity Academy name: Academy
+        Number of Brains: 1
+        Number of External Brains : 1
+        Lesson number : 0
+        Reset Parameters :
+                
+Unity brain name: TennisBrain
+        Number of Visual Observations (per agent): 0
+        Vector Observation space type: continuous
+        Vector Observation space size (per agent): 8
+        Number of stacked Vector Observation: 3
+        Vector Action space type: continuous
+        Vector Action space size (per agent): 2
+        Vector Action descriptions: , 
+Number of agents: 2
+Size of each action: 2
+There are 2 agents. Each observes a state with length: 24
+The state for the first agent looks like: [ 0.          0.          0.          0.          0.          0.
+  0.          0.          0.          0.          0.          0.
+  0.          0.          0.          0.         -6.65278625 -1.5
+ -0.          0.          6.83172083  6.         -0.          0.        ]
+=====================
+Options:
+1. Train the agents
+2. Play the agents
 
-Then, place the file in the `p3_collab-compet/` folder in the DRLND GitHub repository, and unzip (or decompress) the file.  Next, open `Soccer.ipynb` and follow the instructions to learn how to use the Python API to control the agent.
+Input options (1/2): 2
 
-(_For AWS_) If you'd like to train the agents on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Soccer/Soccer_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agents without enabling a virtual screen, but you will be able to train the agents.  (_To watch the agents, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
+```

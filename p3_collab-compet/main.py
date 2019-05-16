@@ -134,13 +134,19 @@ def PlotScoreHistory(scores_hist):
     Input:
         scores_hist (list of float): score history
     """
-        
+    
+    # Calculate the mean of last 100 runs
+    w= 100
+    lastmean_scores= np.hstack((np.zeros(w-1),
+                                np.convolve(scores_hist,np.ones(w),"valid")/w))       
     plt.figure()
     plt.plot(scores_hist)
+    plt.plot(lastmean_scores)
     plt.xlabel("Episode", fontsize=14)
     plt.ylabel("Score", fontsize=14)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
+    plt.legend(("Score History","Last 100 Mean Scores"),fontsize=14)
 
 def GetEnvInfo(env):
     """ Get environment information
