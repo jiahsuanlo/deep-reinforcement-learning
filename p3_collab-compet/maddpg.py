@@ -12,28 +12,26 @@ import random
 
 class HyperParam:
     def __init__(self, state_size, action_size):
-        self.state_size= state_size
-        self.action_size= action_size
-        self.fcsizes_actor=[96,96]
-        self.fcsizes_critic=[96,96]
-        self.lr_actor= 1e-4
-        self.lr_critic= 1e-4
-        self.discount_factor= 0.99
-        self.tau= 1e-3 # soft update constant
-        self.seed= int(12)
-        self.buffer_size= int(50000)
-        self.buffer_fill= int(20000)
-        self.batch_size= int(1024)
+        self.state_size= state_size     # state size
+        self.action_size= action_size   # action size
+        self.fcsizes_actor=[96,96]      # hidden unit sizes of actor
+        self.fcsizes_critic=[96,96]     # hidden unit sizes of critic
+        self.lr_actor= 1e-4             # actor model learning rate
+        self.lr_critic= 1e-4            # critic model learning rate
+        self.discount_factor= 0.99      # discount factor
+        self.tau= 1e-3                  # soft update constant
+        self.seed= int(12)              # manual random seed 
+        self.buffer_size= int(50000)    # replay buffer size
+        self.buffer_fill= int(20000)    # random pre-fill size 
+        self.batch_size= int(1024)      # batch size
         
-        self.episode_count= int(5000)
-        self.max_t= int(2000)
-        self.update_every= int(5)
-        self.score_winsize= int(100)
+        self.episode_count= int(5000)   # maximal number of episode
+        self.max_t= int(2000)           # maximal time of each episode
+        self.update_every= int(5)       # parameter update interval 
+        self.score_winsize= int(100)    # window size for calculating mean score
                 
-        self.solve_score= 0.5
-                
-        #self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.device = 'cpu'
+        self.solve_score= 0.5           # target mean score considered as "solved"
+        self.device = 'cpu'             # device used for training
 
 class ReplayBuffer_MADDPG:
     """Fixed-size buffer to store experience tuples."""
