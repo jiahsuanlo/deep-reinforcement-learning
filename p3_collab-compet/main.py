@@ -207,7 +207,7 @@ if __name__=="__main__":
         PlotScoreHistory(scores_hist)
     else:
         # replay the smart agent
-        Play(env, brain_name, magent,5)
+        Play(env, brain_name, magent,20)
     
     # close the env
     env.close()
